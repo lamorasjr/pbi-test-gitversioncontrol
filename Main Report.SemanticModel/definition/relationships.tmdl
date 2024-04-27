@@ -1,0 +1,14 @@
+relationship fd8c6a05-9e94-478e-ace0-b3b7bcedc141
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Calendar Dates'.Date
+	toColumn: LocalDateTable_07d7aa02-e9c4-4edb-8084-80d11e33c131.Date
+
+relationship 7e09e39b-431c-4955-b610-3b022a022429
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Calendar Dates'.'Start of Month'
+	toColumn: LocalDateTable_352e91ba-d2ea-42ad-81b4-680904e4cf70.Date
+
+relationship c336c806-0692-4fb8-8d4e-4b8f364dd402
+	fromColumn: Activity.Date
+	toColumn: 'Calendar Dates'.Date
+

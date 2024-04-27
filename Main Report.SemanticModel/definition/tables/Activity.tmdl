@@ -1,0 +1,162 @@
+table Activity
+	lineageTag: b18e5676-c2dc-43ce-9126-004d83dc1aa2
+
+	column UserID
+		dataType: int64
+		formatString: 0
+		lineageTag: e634db04-91dd-4e07-8e66-4beb092b11cb
+		summarizeBy: count
+		sourceColumn: UserID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 586176d1-3d5f-417d-912d-ab5ff606d364
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Total Distance'
+		dataType: double
+		lineageTag: 4f9fbf0b-3514-4109-9e18-415717016b7d
+		summarizeBy: sum
+		sourceColumn: Total Distance
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Tracker Distance'
+		dataType: double
+		lineageTag: 78a9a54e-2113-44e0-aeed-abf8db7c0832
+		summarizeBy: sum
+		sourceColumn: Tracker Distance
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Logged Activities Distance'
+		dataType: double
+		lineageTag: fef4a5bf-f2dd-4a42-a449-4fe7b0a12b62
+		summarizeBy: sum
+		sourceColumn: Logged Activities Distance
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Very Active Distance'
+		dataType: double
+		lineageTag: 67f099df-e090-4638-a3e2-724e9dbc54e0
+		summarizeBy: sum
+		sourceColumn: Very Active Distance
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Moderately Active Distance'
+		dataType: double
+		lineageTag: ac023912-31eb-4e1a-91fe-11f35496a710
+		summarizeBy: sum
+		sourceColumn: Moderately Active Distance
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Light Active Distance'
+		dataType: double
+		lineageTag: a70b5519-0eff-4ecd-ac65-9ab11a47fe5c
+		summarizeBy: sum
+		sourceColumn: Light Active Distance
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Sedentary Active Distance'
+		dataType: double
+		lineageTag: d17fd44e-e17d-4700-8415-8b9ab9d89c81
+		summarizeBy: sum
+		sourceColumn: Sedentary Active Distance
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Very Active Minutes'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3c5d5157-110f-4016-ae10-a38296d7be71
+		summarizeBy: sum
+		sourceColumn: Very Active Minutes
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fairly Active Minutes'
+		dataType: int64
+		formatString: 0
+		lineageTag: c066720c-18e9-4f63-b75f-7dcf74e466c6
+		summarizeBy: sum
+		sourceColumn: Fairly Active Minutes
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Lightly Active Minutes'
+		dataType: int64
+		formatString: 0
+		lineageTag: f8984758-c160-4a9c-ad65-4b89332d7b1b
+		summarizeBy: sum
+		sourceColumn: Lightly Active Minutes
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sedentary Minutes'
+		dataType: int64
+		formatString: 0
+		lineageTag: e6325203-ba58-413b-a83f-e6b2dad372bb
+		summarizeBy: sum
+		sourceColumn: Sedentary Minutes
+
+		annotation SummarizationSetBy = Automatic
+
+	column Steps
+		dataType: int64
+		formatString: 0
+		lineageTag: 790d2454-8f47-483e-ae2f-8ec03c11901e
+		summarizeBy: sum
+		sourceColumn: Steps
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Calories Burned'
+		dataType: int64
+		formatString: 0
+		lineageTag: b07cda74-7ca3-4215-9e7e-cd8b6cc2b9a1
+		summarizeBy: sum
+		sourceColumn: Calories Burned
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Activity = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\Users\amora\Workspace\pbi-test-gitversioncontrol\data\activity.csv"),[Delimiter=",", Columns=15, Encoding=1252, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Promoted Headers",{{"UserID", Int64.Type}, {"Date", type date}, {"Total_Distance", type number}, {"Tracker_Distance", type number}, {"Logged_Activities_Distance", type number}, {"Very_Active_Distance", type number}, {"Moderately_Active_Distance", type number}, {"Light_Active_Distance", type number}, {"Sedentary_Active_Distance", type number}, {"Very_Active_Minutes", Int64.Type}, {"Fairly_Active_Minutes", Int64.Type}, {"Lightly_Active_Minutes", Int64.Type}, {"Sedentary_Minutes", Int64.Type}, {"Steps", Int64.Type}, {"Calories_Burned", Int64.Type}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Total_Distance", "Total Distance"}, {"Tracker_Distance", "Tracker Distance"}, {"Logged_Activities_Distance", "Logged Activities Distance"}, {"Very_Active_Distance", "Very Active Distance"}, {"Moderately_Active_Distance", "Moderately Active Distance"}, {"Light_Active_Distance", "Light Active Distance"}, {"Sedentary_Active_Distance", "Sedentary Active Distance"}, {"Very_Active_Minutes", "Very Active Minutes"}, {"Fairly_Active_Minutes", "Fairly Active Minutes"}, {"Lightly_Active_Minutes", "Lightly Active Minutes"}, {"Sedentary_Minutes", "Sedentary Minutes"}, {"Calories_Burned", "Calories Burned"}})
+				in
+				    #"Renamed Columns"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

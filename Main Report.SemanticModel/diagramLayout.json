@@ -1,0 +1,48 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 88,
+            "y": 85.5
+          },
+          "nodeIndex": "Activity",
+          "nodeLineageTag": "b18e5676-c2dc-43ce-9126-004d83dc1aa2",
+          "size": {
+            "height": 503,
+            "width": 331
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 557,
+            "y": 38
+          },
+          "nodeIndex": "Calendar Dates",
+          "nodeLineageTag": "e15b3ac6-6d04-4d70-aa82-2cb55029cbee",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

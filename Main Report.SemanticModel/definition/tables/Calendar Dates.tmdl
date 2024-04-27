@@ -1,0 +1,84 @@
+table 'Calendar Dates'
+	lineageTag: e15b3ac6-6d04-4d70-aa82-2cb55029cbee
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: f344ca9c-27a4-48cb-b757-4cd9ea188ffc
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variation
+			isDefault
+			relationship: fd8c6a05-9e94-478e-ace0-b3b7bcedc141
+			defaultHierarchy: LocalDateTable_07d7aa02-e9c4-4edb-8084-80d11e33c131.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Start of Month'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 541d409d-a16c-40c6-8cfb-a9036e0f39d7
+		summarizeBy: none
+		sourceColumn: Start of Month
+
+		variation Variation
+			isDefault
+			relationship: 7e09e39b-431c-4955-b610-3b022a022429
+			defaultHierarchy: LocalDateTable_352e91ba-d2ea-42ad-81b4-680904e4cf70.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 8aedddae-c9fb-4ca6-b166-c288946fb500
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Month Name'
+		dataType: string
+		lineageTag: 5e89b334-8258-4aab-8d01-2eb728baa201
+		summarizeBy: none
+		sourceColumn: Month Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Year-Month
+		dataType: string
+		lineageTag: 0b741db7-d639-4d9e-8bdb-f476bc59021a
+		summarizeBy: none
+		sourceColumn: Year-Month
+		sortByColumn: 'Start of Month'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Calendar Dates' = m
+		mode: import
+		source =
+				let
+				    EndDate = Date.From(DateTime.LocalNow()),
+				    StartDate = Date.From(List.Min(Activity[Date])),
+				    Source = List.Dates( StartDate, Duration.Days( EndDate - StartDate ) + 1, #duration( 1, 0, 0, 0 ) ),
+				    #"Converted to Table" = Table.FromList(Source, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Converted to Table",{{"Column1", type date}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"Column1", "Date"}}),
+				    #"Inserted Start of Month" = Table.AddColumn(#"Renamed Columns", "Start of Month", each Date.StartOfMonth([Date]), type date),
+				    #"Inserted Year" = Table.AddColumn(#"Inserted Start of Month", "Year", each Date.Year([Date]), Int64.Type),
+				    #"Inserted Month Name" = Table.AddColumn(#"Inserted Year", "Month Name", each Date.MonthName([Date]), type text),
+				    #"Inserted Merged Column" = Table.AddColumn(#"Inserted Month Name", "Year-Month", each Text.Combine({Text.From([Year], "pt-BR"), [Month Name]}, "-"), type text)
+				in
+				    #"Inserted Merged Column"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
