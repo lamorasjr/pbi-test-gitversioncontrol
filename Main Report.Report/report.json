@@ -27,13 +27,49 @@
       "name": "ReportSection",
       "visualContainers": [
         {
-          "config": "{\"name\":\"8a108da1e34f23031960\",\"layouts\":[{\"id\":0,\"position\":{\"x\":52.52279635258359,\"y\":227.5987841945289,\"z\":0,\"width\":1173.981762917933,\"height\":264.55927051671733,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Calendar Dates.Date\",\"active\":true}],\"Y\":[{\"queryRef\":\"Sum(Activity.Calories Burned)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Calendar Dates\",\"Type\":0},{\"Name\":\"a\",\"Entity\":\"Activity\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Date\"},\"Name\":\"Calendar Dates.Date\",\"NativeReferenceName\":\"Date\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Calories Burned\"}},\"Function\":0},\"Name\":\"Sum(Activity.Calories Burned)\",\"NativeReferenceName\":\"Sum of Calories Burned\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Date\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "config": "{\"name\":\"2e949cace8197e784e99\",\"layouts\":[{\"id\":0,\"position\":{\"x\":952.32,\"y\":38.912,\"z\":4,\"width\":249.856,\"height\":161.792,\"tabOrder\":4}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Activity.Calories Burned)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"Activity\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Calories Burned\"}},\"Function\":0},\"Name\":\"Sum(Activity.Calories Burned)\",\"NativeReferenceName\":\"Sum of Calories Burned\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Calories Burned\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}]}}}",
           "filters": "[]",
-          "height": 264.56,
-          "width": 1173.98,
-          "x": 52.52,
-          "y": 227.60,
+          "height": 161.79,
+          "width": 249.86,
+          "x": 952.32,
+          "y": 38.91,
+          "z": 4.00
+        },
+        {
+          "config": "{\"name\":\"8a108da1e34f23031960\",\"layouts\":[{\"id\":0,\"position\":{\"x\":40.96,\"y\":228.352,\"z\":0,\"width\":1168.384,\"height\":471.04,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"lineClusteredColumnComboChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Calendar Dates.Date\",\"active\":true}],\"Y2\":[{\"queryRef\":\"Sum(Activity.Total Distance)\"}],\"Y\":[{\"queryRef\":\"Sum(Activity.Calories Burned)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Calendar Dates\",\"Type\":0},{\"Name\":\"a\",\"Entity\":\"Activity\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Date\"},\"Name\":\"Calendar Dates.Date\",\"NativeReferenceName\":\"Date\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Total Distance\"}},\"Function\":0},\"Name\":\"Sum(Activity.Total Distance)\",\"NativeReferenceName\":\"Sum of Total Distance\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Calories Burned\"}},\"Function\":0},\"Name\":\"Sum(Activity.Calories Burned)\",\"NativeReferenceName\":\"Sum of Calories Burned\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Date\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 471.04,
+          "width": 1168.38,
+          "x": 40.96,
+          "y": 228.35,
           "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"9e599158062dc0f0ffbd\",\"layouts\":[{\"id\":0,\"position\":{\"x\":333.824,\"y\":38.912,\"z\":2,\"width\":249.856,\"height\":161.792,\"tabOrder\":2}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Activity.Tracker Distance)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"Activity\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Tracker Distance\"}},\"Function\":0},\"Name\":\"Sum(Activity.Tracker Distance)\",\"NativeReferenceName\":\"Sum of Tracker Distance\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Tracker Distance\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 161.79,
+          "width": 249.86,
+          "x": 333.82,
+          "y": 38.91,
+          "z": 2.00
+        },
+        {
+          "config": "{\"name\":\"c680a52f31ef7f4ddb66\",\"layouts\":[{\"id\":0,\"position\":{\"x\":40.96,\"y\":38.912,\"z\":1,\"width\":249.856,\"height\":161.792,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Activity.Total Distance)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"Activity\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Total Distance\"}},\"Function\":0},\"Name\":\"Sum(Activity.Total Distance)\",\"NativeReferenceName\":\"Sum of Total Distance\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Total Distance\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 161.79,
+          "width": 249.86,
+          "x": 40.96,
+          "y": 38.91,
+          "z": 1.00
+        },
+        {
+          "config": "{\"name\":\"f43b88729b6444837a75\",\"layouts\":[{\"id\":0,\"position\":{\"x\":640,\"y\":38.912,\"z\":3,\"width\":249.856,\"height\":161.792,\"tabOrder\":3}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Activity.Steps)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"Activity\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Steps\"}},\"Function\":0},\"Name\":\"Sum(Activity.Steps)\",\"NativeReferenceName\":\"Sum of Steps\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Steps\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"labels\":[{\"properties\":{\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}]},\"vcObjects\":{\"border\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 161.79,
+          "width": 249.86,
+          "x": 640.00,
+          "y": 38.91,
+          "z": 3.00
         }
       ],
       "width": 1280.00
